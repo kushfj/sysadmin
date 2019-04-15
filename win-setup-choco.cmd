@@ -10,8 +10,9 @@ choco upgrade chocolatey
 rem Install Oracle Virtualbox 
 choco install virtualbox --yes
 
-rem Install web browser and Internet connectivity tools
+rem Install web browsers and Internet connectivity tools
 choco install firefox --yes
+choco install googlechrome --yes
 choco install nordvpn --yes
 
 rem Install Network traffic capture tools
@@ -31,6 +32,7 @@ choco install dropbox --yes
 rem Install useful applications
 choco install neovim --yes
 choco install vlc --yes
+choco install pdfxchangeeditor --yes
 
 rem Install Arduino development environment
 choco install arduino --yes
