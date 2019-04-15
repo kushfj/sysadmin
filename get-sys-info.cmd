@@ -23,9 +23,13 @@ wmic startup
 
 
 rem # get scheduled task details
+schtasks /query /v
 
 
 rem # get local users and groups
+whoami /all
+net user
+net localgroup
 
 
 rem # get network details, interfaces, IPs, MAC addresses, routing table, ARP cache, DNS cache
@@ -42,6 +46,7 @@ driverquery
 
 rem # get list of open file handles
 rem # sysinternals - handle.exe
+rem # TODO
 
 
 rem # get running processes
@@ -50,6 +55,7 @@ wmic process get processid,parentprocessid,executablepath
 
 
 rem # get user login history, usernames, source, and login duration
+rem # TODO
 
 
 rem # get list of installed applications
