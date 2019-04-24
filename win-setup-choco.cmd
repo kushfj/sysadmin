@@ -22,6 +22,8 @@ rem Install Utilities
 choco install 7zip --yes
 choco install sysinternals --yes
 choco install putty --yes
+rem choco install grep --yes
+choco install gnuwin --yes
 
 rem Install password manager
 choco install keepass --yes
@@ -46,3 +48,7 @@ choco upgrade all
 
 rem List all installed applications
 choco list --local-only
+
+rem Install utilities or CTFs
+choco install md5sums --yes
+choco install volatility --yes
