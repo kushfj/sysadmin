@@ -18,8 +18,16 @@ choco install googlechrome --yes
 choco install nordvpn --yes
 
 rem Install Windows management and admin tools
+rem #choco install mbca --yes
 choco install rsat --yes
 choco install sysinternals --yes
+
+rem Install Cloud management and admin tools
+choco install awscli --yes
+choco install azure-cli --yes
+choco install azurepowershell --yes
+choco install msoidcli --yes
+choco install terraform --yes
 
 rem Install Utilities
 choco install 7zip --yes
@@ -48,7 +56,7 @@ choco install fiddler --yes
 choco install burp-suite-free-edition --yes
 
 rem Install memory analysis tools
-choco install vilatility --yes
+choco install volatility --yes
 
 rem Install development tools
 choco install python --yes
