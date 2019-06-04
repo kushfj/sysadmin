@@ -21,6 +21,7 @@ rem Install Windows management and admin tools
 rem #choco install mbca --yes
 choco install rsat --yes
 choco install sysinternals --yes
+choco install wsl --yes
 
 rem Install Cloud management and admin tools
 choco install awscli --yes
