@@ -23,7 +23,13 @@ choco install 7zip --yes
 choco install sysinternals --yes
 choco install putty --yes
 rem choco install grep --yes
-choco install gnuwin --yes
+rem choco install gnuwin --yes
+choco install cygwin --yes
+
+rem Cloud Management tools
+choco install awscli --yes
+choco install azure-cli --yes
+choco install terraform --yes
 
 rem Install password manager
 choco install keepass --yes
@@ -50,5 +56,5 @@ rem List all installed applications
 choco list --local-only
 
 rem Install utilities or CTFs
-choco install md5sums --yes
+rem choco install md5sums --yes
 choco install volatility --yes
