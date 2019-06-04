@@ -38,7 +38,7 @@ netstat -an
 netstat -nr
 arp -a
 ipconfig /displaydns
-
+type C:\Windows\System32\drivers\etc\hosts
 
 rem # get list of drivers 
 driverquery
