@@ -22,6 +22,7 @@ rem #choco install mbca --yes
 choco install rsat --yes
 choco install sysinternals --yes
 choco install wsl --yes
+choco install wsl-ubuntu-1804 --yes
 
 rem Install Cloud management and admin tools
 choco install awscli --yes
@@ -64,8 +65,9 @@ rem Install web traffic analysis tools
 choco install fiddler --yes
 choco install burp-suite-free-edition --yes
 
-rem Install memory analysis tools
+rem Install forensics analysis tools
 choco install volatility --yes
+choco install osfmount --yes
 
 rem Install development tools
 choco install python --yes
@@ -77,6 +79,10 @@ rem Install communications tools and utilities
 choco install slack --yes
 choco install signal --yes
 
+rem Install 3D modelling and printing software
+choco install freecad --yes
+choco install cura-new --yes
+
 rem Upgrade all other installed applications
 rem #choco upgrade all
 
@@ -85,4 +91,3 @@ choco list --local-only
 
 rem Install utilities or CTFs
 rem choco install md5sums --yes
-choco install volatility --yes
