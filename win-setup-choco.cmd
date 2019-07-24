@@ -80,11 +80,14 @@ choco install slack --yes
 choco install signal --yes
 
 rem Install 3D modelling and printing software
-choco install freecad --yes
-choco install cura-new --yes
+rem choco install freecad --yes
+rem choco install cura-new --yes
+
+rem Install R&D software
+rem choco install mendeley --yes
 
 rem Upgrade all other installed applications
-rem #choco upgrade all
+rem #choco upgrade all -y
 
 rem List all installed applications
 choco list --local-only
