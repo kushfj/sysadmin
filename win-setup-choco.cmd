@@ -85,6 +85,7 @@ rem choco install cura-new --yes
 
 rem Install R&D software
 rem choco install mendeley --yes
+rem choco install freemind --yes
 
 rem Upgrade all other installed applications
 rem #choco upgrade all -y
