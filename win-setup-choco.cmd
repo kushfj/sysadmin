@@ -55,6 +55,7 @@ rem Install useful applications
 choco install vim --yes
 choco install vlc --yes
 choco install pdfxchangeeditor --yes
+rem choco install calibre --yes
 
 rem Install Network traffic capture and analysis tools
 choco install microsoft-message-analyzer --yes
@@ -74,6 +75,7 @@ choco install python --yes
 choco install arduino --yes
 choco install git --yes
 choco install github --yes
+choco install tortoisesvn --yes
 
 rem Install communications tools and utilities
 choco install slack --yes
@@ -86,6 +88,8 @@ rem choco install cura-new --yes
 rem Install R&D software
 rem choco install mendeley --yes
 rem choco install freemind --yes
+rem choco install miktex --yes
+rem choco install make --yes
 
 rem Upgrade all other installed applications
 rem #choco upgrade all -y
