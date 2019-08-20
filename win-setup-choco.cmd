@@ -61,6 +61,7 @@ rem Install Network traffic capture and analysis tools
 choco install microsoft-message-analyzer --yes
 choco install winpcap --yes
 choco install wireshark --yes
+choco install solarwinds-tftp-server --yes
 
 rem Install web traffic analysis tools
 choco install fiddler --yes
