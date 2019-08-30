@@ -73,6 +73,7 @@ choco install osfmount --yes
 
 rem Install development tools
 choco install python --yes
+rem choco install pycharm --yes
 choco install arduino --yes
 choco install git --yes
 choco install github --yes
