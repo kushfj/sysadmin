@@ -1,6 +1,6 @@
 @echo off
-rem Simple batch script to tweak Windows 10 host to 
-rem must be run with elevated privileges
+rem !!! simpler solution would be to just use something like https://www.getblackbird.net/download/ !!!
+rem Simple batch script to tweak Windows 10 host to must be run with elevated privileges
 rem TODO: add checking for elevated privileges and attempt elevation via UAC
 
 rem disable windows 10 telemetry
@@ -33,6 +33,10 @@ rem disable universal plug and play/pray (UPnP)
 echo "[+] disabling UPnP"
 reg add "HKLM\Software\Microsoft\DirectplayNATHelp\DPNHUPnP" /v "UPnPMode" /t REG_DWORD /d 2 /f
 
+rem disable web proxy auto discovery (WPAD)
+echo "[+] disabling WPAD"
+reg add "HKLM\System\CurrentControlSet\Services\Tcpip\Parameters" /v "UseDomainNameDevolution" /t REG_DWORD /d 0 /f
+
 rem disable redundant services
 for %%j in (
   "diagnosticshub.standardcollector.service" 
@@ -48,6 +52,7 @@ for %%j in (
   "TrkWks"
   "WbioSrvc"
   "WMPNetworkSvc"
+  "XboxGipSvc"
   "XblAuthManager"
   "XblGameSave"
   "XboxNetApiSvc"
@@ -66,6 +71,15 @@ sc config "SSDPSRV" start=disabled
 rem stop and disable 
 sc stop "WinHttpAutoProxySvc"
 sc config "WinHttpAutoProxySvc" start=disabled
+
+rem disable drivers
+reg add "HKLM\System\CurrentControlSet\Services\MsLldp" /v "Start" /t REG_DWORD /d "4" /f
+reg add "HKLM\System\CurrentControlSet\Services\rspndr" /v "Start" /t REG_DWORD /d "4" /f
+reg add "HKLM\System\CurrentControlSet\Services\lltdio" /v "Start" /t REG_DWORD /d "4" /f
+
+rem replace the hosts file
+rem https://isc.sans.edu/forums/diary/A+Suspicious+Use+of+certutilexe/23517/
+rem certutil.exe -urlcache -split -f "http://winhelp2002.mvps.org/hosts.zip" hosts.zip
 
 rem set windows firewall to defaults
 echo "[+] resetting windows firewall"
