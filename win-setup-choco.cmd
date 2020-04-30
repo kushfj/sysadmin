@@ -7,10 +7,12 @@ rem   `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 rem Upgrade chocolatey
+rem #choco feature enable -n allowGlobalConfirmation
 rem #choco upgrade chocolatey
 
 rem Install Oracle Virtualbox 
 choco install virtualbox --yes
+rem choco install vagrant --yes
 
 rem Install web browsers and Internet connectivity tools
 choco install firefox --yes
@@ -37,13 +39,12 @@ choco install bind-toolsonly --yes
 choco install cygwin --yes
 choco install putty --yes
 rem choco install grep --yes
+rem choco install bzip2 --yes
+rem choco install caffeine --yes
+rem choco install gzip --yes
 rem choco install gnuwin --yes
 choco install cygwin --yes
-
-rem Cloud Management tools
-choco install awscli --yes
-choco install azure-cli --yes
-choco install terraform --yes
+choco install winscp --yes
 
 rem Install password manager
 choco install keepass --yes
@@ -54,6 +55,8 @@ choco install dropbox --yes
 rem Install useful applications
 choco install vim --yes
 choco install vlc --yes
+rem choco install ffmpeg --yes
+rem choco install audacity --yes
 choco install pdfxchangeeditor --yes
 rem choco install calibre --yes
 
@@ -70,15 +73,23 @@ choco install burp-suite-free-edition --yes
 rem Install forensics analysis tools
 choco install volatility --yes
 choco install osfmount --yes
+choco install hashcat --yes
+rem choco install die --yes
+rem choco install exiftool --yes
+rem choco install hxd --yes
+rem choco install netcat --yes
+rem choco install md5sums --yes
 
 rem Install development tools
 choco install arduino --yes
+rem choco install fritzing --yes
 choco install git --yes
 choco install github --yes
-choco install python --yes
+choco install python3 --yes
 rem choco install pycharm-community --yes
 choco install sqlite --yes
 choco install tortoisesvn --yes
+rem choco install vscode --yes
 
 rem Install communications tools and utilities
 choco install slack --yes
@@ -93,6 +104,7 @@ rem choco install mendeley --yes
 rem choco install freemind --yes
 rem choco install miktex --yes
 rem choco install make --yes
+rem choco install hugo --yes
 
 rem Upgrade all other installed applications
 rem #choco upgrade all -y
