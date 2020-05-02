@@ -43,7 +43,6 @@ rem choco install bzip2 --yes
 rem choco install caffeine --yes
 rem choco install gzip --yes
 rem choco install gnuwin --yes
-choco install cygwin --yes
 choco install winscp --yes
 
 rem Install password manager
@@ -102,6 +101,7 @@ rem choco install cura-new --yes
 rem Install R&D software
 rem choco install mendeley --yes
 rem choco install freemind --yes
+rem choco install miktex.install --yes
 rem choco install miktex --yes
 rem choco install make --yes
 rem choco install hugo --yes
