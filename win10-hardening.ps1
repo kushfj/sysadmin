@@ -343,6 +343,7 @@ Function DisableSMBv1
 }
 
 # Disable windows file and print sharing
+# If you ar eusing psexec then this should not be run, just enable SMBv2
 Function DisableSMBShare
 {
   Write-Host 'Disabling SMB Server.'
@@ -377,6 +378,7 @@ Function DisableMapShare
 }
 
 # Disable SMB server to prevent sharing of files and printers
+# If you ar eusing psexec then this should not be run
 Function DisableAdminShare
 {
   Write-Host '[-] Disabling implicit administrative shares.'
