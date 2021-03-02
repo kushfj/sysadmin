@@ -13,6 +13,7 @@ rem NBDS	138/udp (netbios datagram service)
 rem 
 rem - https://support.microsoft.com/en-us/topic/preventing-smb-traffic-from-lateral-connections-and-entering-or-leaving-the-network-c0541db7-2244-0dce-18fd-14a3ddeb282a
 rem - https://serverfault.com/questions/653814/windows-firewall-netsh-block-all-ips-from-a-text-file
+rem - https://serverfault.com/questions/304781/cidr-ranges-for-everything-except-rfc1918
 
 
 setlocal enabledelayedexpansion
