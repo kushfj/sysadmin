@@ -1,7 +1,6 @@
 @echo off
 echo [*] start blocking SMB and NetBIOS script
-set starttime=%time%
-echo [+] start time
+setlocal enabledelayedexpansion
 
 rem windows batch script to create firewall rules to block SMB and NetBIOS to
 rem Internet sites from local host. The following traffic is blocked
@@ -16,30 +15,36 @@ rem - https://serverfault.com/questions/653814/windows-firewall-netsh-block-all-
 rem - https://serverfault.com/questions/304781/cidr-ranges-for-everything-except-rfc1918
 
 
-setlocal enabledelayedexpansion
-
-
 rem initialise local variables
+set remips=
 set /a count=0
 
 
 rem loop through file of internet addresses
 echo [+] getting ip addresses
+rem for /f "skip=1" %%f in (internet.txt) do (
 for /f %%f in (internet.txt) do (
+	set remips=!remips!,%%f
 	set /a count+=1
-	echo [+] blocking SMB/NetBIOS access to %%f
-	start /b netsh advfirewall firewall add rule name="Block SMB/NBSS to Internet - %%f" dir=out action=block enable=yes Profile=any Localip=any Remoteip=%%f Protocol=tcp Interfacetype=any remoteport=445,139
-	start /b netsh advfirewall firewall add rule name="Block NBDS/NBNR to Internet - %%f" dir=out action=block enable=yes Profile=any Localip=any Remoteip=%%f Protocol=udp Interfacetype=any remoteport=137,138
 )
 echo [+] read %count% IPs
 
 
+rem rem remove the leading comma
+set remips=%remips:~1%
+
+
+rem create block SMB/NetBIOS session service firewall rule
+echo [+] blocking SMB/NBSS
+echo [-] debug: netsh advfirewall firewall add rule name="Block SMB/NBSS to Internet" dir=out action=block enable=yes Profile=any Localip=any Remoteip=%remips% Protocol=tcp Interfacetype=any remoteport=445,139
+netsh advfirewall firewall add rule name="Block SMB/NBSS to Internet" dir=out action=block enable=yes Profile=any Localip=any Remoteip=%remips% Protocol=tcp Interfacetype=any remoteport=445,139
+echo.
+rem create block NetBIOS name resolution and datagram services firewall rule
+echo [+] blocking NBDS/NBNR
+echo [-] debug: netsh advfirewall firewall add rule name="Block NBDS/NBNR to Internet" dir=out action=block enable=yes Profile=any Localip=any Remoteip=%remips% Protocol=udp Interfacetype=any remoteport=137,138
+netsh advfirewall firewall add rule name="Block NBDS/NBNR to Internet" dir=out action=block enable=yes Profile=any Localip=any Remoteip=%remips% Protocol=udp Interfacetype=any remoteport=137,138
+echo.
+
 endlocal
 echo [*] done
-set endtime=%time%
-echo [-] start: %starttime%
-echo [-] end: %endtime%
 pause
-
-rem cleanup all outgoing rules
-rem netsh advfirewall firewall delete rule name=all dir=out
