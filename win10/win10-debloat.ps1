@@ -15,7 +15,7 @@ Get-AppxPackage -name "Microsoft.Music.Preview" | Remove-AppxPackage
 Get-AppxPackage -name "Microsoft.Office.OneNote" | Remove-AppxPackage
 Get-AppxPackage -name "Microsoft.People" | Remove-AppxPackage
 Get-AppxPackage -name "Microsoft.Windows.Photos" | Remove-AppxPackage
-Get-AppxPackage -name "Microsoft.WindowsCalculator" | Remove-AppxPackage
+#Get-AppxPackage -name "Microsoft.WindowsCalculator" | Remove-AppxPackage
 Get-AppxPackage -name "Microsoft.WindowsCamera" | Remove-AppxPackage
 Get-AppxPackage -name "Microsoft.WindowsMaps" | Remove-AppxPackage
 Get-AppxPackage -name "Microsoft.WindowsPhone" | Remove-AppxPackage
@@ -24,7 +24,6 @@ Get-AppxPackage -name "Microsoft.XboxApp" | Remove-AppxPackage
 Get-AppxPackage -name "Microsoft.XboxGameCallableUI" | Remove-AppxPackage
 Get-AppxPackage -name "Microsoft.XboxIdentityProvider" | Remove-AppxPackage
 Get-AppxPackage -name "Microsoft.ZuneMusic" | Remove-AppxPackage
-
 
 # https://www.askvg.com/guide-how-to-remove-all-built-in-apps-in-windows-10/
 get-appxpackage *3d* | remove-appxpackage
@@ -54,3 +53,11 @@ get-appxpackage *sway* | remove-appxpackage
 get-appxpackage *wallet* | remove-appxpackage
 get-appxpackage *windowsphone* | remove-appxpackage
 get-appxpackage *xbox* | remove-appxpackage
+
+# https://www.howtogeek.com/224798/how-to-uninstall-windows-10s-built-in-apps-and-how-to-reinstall-them/
+Get-AppxPackage *solitairecollection* | Remove-AppxPackage
+
+# manual uninstall
+Get-AppxPackage "Microsoft.Messaging" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.MixedReality.Portal" | Remove-AppxPackage
+Get-AppxPackage Microsoft.OneConnect | Remove-AppxPackage
